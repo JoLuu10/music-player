@@ -1,44 +1,69 @@
-import {useState, useRef } from "react";
+import { useState, useRef } from "react";
 import songs from "../data/songs";
 import Controls from "./Controls";
 import ProgressBar from "./ProgressBar";
+import "./Player.css";
 
-function Player(){
-    const [currentSongIndex, setCurrentSongIndex] = useState(0); // currentSongIndex enseña la cancion que está sonando.
-    const [isPlaying, setIsPlaying] = useState(false); // muestra si se está reproduciendo o no la canción.
+function Player() {
+  const [currentSongIndex, setCurrentSongIndex] = useState(0);
+  const [isPlaying, setIsPlaying] = useState(false);
 
-    const audioRef = useRef(null); // Referencia al elemento de audio para controlar la reproducción.
+  const audioRef = useRef(null);
+  const currentSong = songs[currentSongIndex];
 
-    const currentSong = songs[currentSongIndex]; // Obtenemos la canción actual del array de canciones usando el índice actual.
+  const togglePlay = () => {
+    if (isPlaying) {
+      audioRef.current.pause();
+    } else {
+      audioRef.current.play();
+    }
+    setIsPlaying(!isPlaying);
+  };
 
-    const togglePlay = () => { // Función para alternar entre reproducir y pausar la canción.
-        if (isPlaying) {
-            audioRef.current.pause();
-        } else {
-            audioRef.current.play();
-        }
-        setIsPlaying(!isPlaying);
-    };
+  const nextSong = () => {
+    setCurrentSongIndex((prev) => (prev + 1) % songs.length);
+    setIsPlaying(false);
+  };
 
-    const nextSong = () => { // Función para pasar a la siguiente canción.
-        setCurrentSongIndex((prevIndex) => (prevIndex + 1) % songs.length);
-        setIsPlaying(false);
-    };
-
-    return (
-        <div>
-            <h2>{currentSong.title}</h2>
-            <p>{currentSong.artist}</p>
-
-            <audio ref={audioRef} src={currentSong.src} />
-
-            <Controls 
-                isPlaying={isPlaying} 
-                togglePlay={togglePlay} 
-                nextSong={nextSong} 
-            />
-
-            <ProgressBar audioRef={audioRef} />
-        </div>
+  const prevSong = () => {
+    setCurrentSongIndex((prev) =>
+      prev === 0 ? songs.length - 1 : prev - 1
     );
-};
+    setIsPlaying(false);
+  };
+
+  return (
+    <div
+      className="player"
+      style={{
+        backgroundImage: `url(${currentSong.cover})`
+      }}
+    >
+      <div className="overlay">
+        <div className="player-card">
+          <img
+            src={currentSong.cover}
+            alt="cover"
+            className="cover"
+          />
+
+          <h2>{currentSong.title}</h2>
+          <p>{currentSong.artist}</p>
+
+          <audio ref={audioRef} src={currentSong.src} />
+
+          <ProgressBar audioRef={audioRef} />
+
+          <Controls
+            isPlaying={isPlaying}
+            togglePlay={togglePlay}
+            nextSong={nextSong}
+            prevSong={prevSong}
+          />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default Player;

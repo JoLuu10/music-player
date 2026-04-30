@@ -1,7 +1,7 @@
 function Controls({ isPlaying, togglePlay, nextSong }) { // Componente de controles que recibe las props necesarias para controlar la reproducción y cambiar de canción.
     return(
         <div>
-            <button onClick={togglePlay}> // Botón para reproducir o pausar la canción, muestra "Play" o "Pause" según el estado de reproducción.
+            <button onClick={togglePlay}> 
                 {isPlaying ? "Pause" : "Play"}
             </button>
 
@@ -11,3 +11,6 @@ function Controls({ isPlaying, togglePlay, nextSong }) { // Componente de contro
         </div>
     );
 }
+
+
+export default Controls;
