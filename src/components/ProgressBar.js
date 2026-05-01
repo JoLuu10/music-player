@@ -33,14 +33,17 @@ function ProgressBar({ audioRef }) {
         width: "100%",
         height: "10px",
         background: "#ccc",
-        cursor: "pointer"
+        cursor: "pointer",
+        borderRadius: "5px",
+        margin: "20px 0"
       }}
     >
       <div
         style={{ // Estilo de la barra de progreso que se llena según el progreso actual de la canción.
           width: `${progress}%`,
           height: "100%",
-          background: "red"
+          background: "red",
+          borderRadius: "5px"
         }}
       />
     </div>

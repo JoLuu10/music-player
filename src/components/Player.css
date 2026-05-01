@@ -15,7 +15,7 @@
 
 .player-card {
   text-align: center;
-  color: white;
+  color: rgb(253, 253, 253);
   width: 300px;
 }
 
@@ -26,18 +26,53 @@
 }
 
 .controls {
-  margin-top: 20px;
+  margin-top: 30px;
   display: flex;
   justify-content: center;
   gap: 20px;
 }
 
 .controls button {
-  background: none;
+  padding: 15px 30px;
   border: none;
-  color: white;
-  font-size: 24px;
+  border-radius: 50px;
+  font-size: 18px;
+  font-weight: bold;
   cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.controls button:first-child {
+  background: linear-gradient(135deg, #e47867 0%, #963021 100%);
+  color: white;
+  min-width: 140px;
+}
+
+.controls button:first-child:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(206, 95, 68, 0.4);
+}
+
+.controls button:first-child:active {
+  transform: scale(0.98);
+}
+
+.controls button:last-child {
+  background: linear-gradient(135deg, #e4ce9b 0%, #a59338 100%);
+  color: white;
+  min-width: 140px;
+}
+
+.controls button:last-child:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(245, 233, 189, 0.4);
+}
+
+.controls button:last-child:active {
+  transform: scale(0.98);
 }
 
 .play-btn {
