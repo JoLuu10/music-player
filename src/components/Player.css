@@ -1,19 +1,20 @@
-.player {
+.player { 
   height: 100vh;
   background-size: cover;
   background-position: center;
 }
 
-.overlay {
+.overlay { /* Capa de superposición para el efecto de desenfoque y fondo oscuro */
   backdrop-filter: blur(20px);
   background: rgba(0, 0, 0, 0.7);
+  background-position: center;
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.player-card {
+.player-card { /* Tarjeta del reproductor con fondo oscuro y bordes redondeados */
   text-align: center;
   color: rgb(253, 253, 253);
   width: 300px;
@@ -45,13 +46,13 @@
   letter-spacing: 1px;
 }
 
-.controls button:first-child {
+.controls button:first-child { /* Estilos para el botón de reproducir/pausar */
   background: linear-gradient(135deg, #e47867 0%, #963021 100%);
   color: white;
   min-width: 140px;
 }
 
-.controls button:first-child:hover {
+.controls button:first-child:hover { /* Efecto hover para el botón de reproducir/pausar */
   transform: scale(1.1);
   box-shadow: 0 6px 20px rgba(206, 95, 68, 0.4);
 }
@@ -60,13 +61,13 @@
   transform: scale(0.98);
 }
 
-.controls button:last-child {
+.controls button:last-child { /* Estilos para el botón de siguiente */
   background: linear-gradient(135deg, #e4ce9b 0%, #a59338 100%);
   color: white;
   min-width: 140px;
 }
 
-.controls button:last-child:hover {
+.controls button:last-child:hover { /* Efecto hover para el botón de siguiente */
   transform: scale(1.1);
   box-shadow: 0 6px 20px rgba(245, 233, 189, 0.4);
 }

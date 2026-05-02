@@ -1,0 +1,56 @@
+.volumen-container {
+  background-color: #e47867;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  border-radius: 50px;
+}
+
+.volumen-icon {
+  font-size: 20px;
+  color: #fff;
+}
+
+.volumen-slider { /* Estilos para el slider de volumen */
+  width: 120px;
+  height: 6px;
+  cursor: pointer;
+}
+
+.volumen-slider::-webkit-slider-thumb { /* Estilos para el thumb del slider de volumen en navegadores WebKit */
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #1db954;
+  cursor: pointer;
+  border: none;
+  align-items: center;
+}
+
+.volumen-slider::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #1db954;
+  cursor: pointer;
+  border: none;
+}
+
+.volumen-slider::-webkit-slider-runnable-track {
+  background: #aa3f2f;
+  height: 6px;
+  border-radius: 3px;
+}
+
+.volumen-slider::-moz-range-track {
+  background: #e4ce9b;
+  height: 6px;
+  border-radius: 3px;
+}
+
+.volumen-value {
+  font-size: 20px;
+  color: #fff;
+  min-width: 30px;
+  text-align: right;
+}

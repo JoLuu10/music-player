@@ -2,11 +2,13 @@ import { useState, useRef } from "react";
 import songs from "../data/songs";
 import Controls from "./Controls";
 import ProgressBar from "./ProgressBar";
+import Volumen from "./Volumen";
 import "./Player.css";
 
 function Player() {
   const [currentSongIndex, setCurrentSongIndex] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [volume, setVolume] = useState(0.7);
 
   const audioRef = useRef(null);
   const currentSong = songs[currentSongIndex];
@@ -32,6 +34,13 @@ function Player() {
     setIsPlaying(false);
   };
 
+  const handleVolumeChange = (newVolume) => {
+    setVolume(newVolume);
+    if (audioRef.current) {
+      audioRef.current.volume = newVolume;
+    }
+  };
+
   return (
     <div
       className="player"
@@ -50,9 +59,11 @@ function Player() {
           <h2>{currentSong.title}</h2>
           <p>{currentSong.artist}</p>
 
-          <audio ref={audioRef} src={currentSong.src} />
+          <audio ref={audioRef} src={currentSong.src} />  {/* Elemento de audio que utiliza la referencia para controlar la reproducción y el volumen. */}
 
-          <ProgressBar audioRef={audioRef} />
+          <ProgressBar audioRef={audioRef} /> {/* Componente de barra de progreso que recibe la referencia del audio para mostrar el progreso de la canción. */}
+
+          <Volumen onChange={handleVolumeChange} /> {/* Componente de volumen que recibe la función para manejar el cambio de volumen. */}  
 
           <Controls
             isPlaying={isPlaying}
