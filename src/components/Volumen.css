@@ -1,56 +1,71 @@
 .volumen-container {
-  background-color: #e47867;
+  position: relative;
+  display: flex;
   align-items: center;
-  gap: 10px;
-  padding: 10px;
-  border-radius: 50px;
+  justify-content: center;
 }
 
-.volumen-icon {
-  font-size: 20px;
-  color: #fff;
+.volume-btn {
+  width: 42px;
+  height: 42px;
+  border: none;
+  border-radius: 50%;
+  background: #aa3f2f;
+  color: white;
+  cursor: pointer;
+  font-size: 18px;
+  transition: 0.2s;
 }
 
-.volumen-slider { /* Estilos para el slider de volumen */
-  width: 120px;
+.volume-btn:hover {
+  transform: scale(1.08);
+  background: #c97163;
+}
+
+.slider-popup {
+  position: absolute;
+  bottom: 80px;
+  width: 50px;
+  height: 140px;
+  background: #aa3f2f;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.volumen-slider {
+  -webkit-appearance: none;
+  appearance: none;
+
+  width: 100px;
   height: 6px;
-  cursor: pointer;
-}
 
-.volumen-slider::-webkit-slider-thumb { /* Estilos para el thumb del slider de volumen en navegadores WebKit */
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  background: #1db954;
-  cursor: pointer;
-  border: none;
-  align-items: center;
-}
+  transform: rotate(-90deg);
 
-.volumen-slider::-moz-range-thumb {
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  background: #1db954;
+  background: #c97163;
+  border-radius: 10px;
+  outline: none;
   cursor: pointer;
-  border: none;
 }
 
 .volumen-slider::-webkit-slider-runnable-track {
-  background: #aa3f2f;
   height: 6px;
-  border-radius: 3px;
+  background: #c97163;
+  border-radius: 10px;
 }
 
-.volumen-slider::-moz-range-track {
-  background: #e4ce9b;
-  height: 6px;
-  border-radius: 3px;
-}
+.volumen-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
 
-.volumen-value {
-  font-size: 20px;
-  color: #fff;
-  min-width: 30px;
-  text-align: right;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+
+  background: #ffffff;
+  border: none;
+  cursor: pointer;
+
+  margin-top: -6px;
 }

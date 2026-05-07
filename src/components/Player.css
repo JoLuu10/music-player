@@ -27,55 +27,77 @@
 }
 
 .controls {
-  margin-top: 30px;
   display: flex;
-  justify-content: center;
   gap: 20px;
+  justify-content: center;
+  align-items: center;
 }
 
 .controls button {
-  padding: 15px 30px;
+  background: #aa3f2f;
   border: none;
-  border-radius: 50px;
-  font-size: 18px;
-  font-weight: bold;
+  color: white;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
   cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-  text-transform: uppercase;
-  letter-spacing: 1px;
+  font-size: 20px;
+  transition: 0.2s;
 }
 
-.controls button:first-child { /* Estilos para el botón de reproducir/pausar */
-  background: linear-gradient(135deg, #e47867 0%, #963021 100%);
-  color: white;
-  min-width: 140px;
-}
-
-.controls button:first-child:hover { /* Efecto hover para el botón de reproducir/pausar */
+.controls button:hover {
   transform: scale(1.1);
-  box-shadow: 0 6px 20px rgba(206, 95, 68, 0.4);
-}
-
-.controls button:first-child:active {
-  transform: scale(0.98);
-}
-
-.controls button:last-child { /* Estilos para el botón de siguiente */
-  background: linear-gradient(135deg, #e4ce9b 0%, #a59338 100%);
-  color: white;
-  min-width: 140px;
-}
-
-.controls button:last-child:hover { /* Efecto hover para el botón de siguiente */
-  transform: scale(1.1);
-  box-shadow: 0 6px 20px rgba(245, 233, 189, 0.4);
-}
-
-.controls button:last-child:active {
-  transform: scale(0.98);
+  background: #c97163;
 }
 
 .play-btn {
   font-size: 40px;
+}
+
+.player-controls-row {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.progress-wrapper {
+  flex: 1;
+}
+
+.volume-wrapper {
+  width: 120px;
+  display: flex;
+  align-items: center;
+}
+
+.bottom-controls {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.controls-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.slider-popup {
+  position: absolute;
+  bottom: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  
+  width: 50px;
+  height: 140px;
+
+  background:#aa3f2f;
+  border-radius: 20px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

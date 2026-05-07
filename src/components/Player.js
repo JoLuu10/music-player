@@ -19,6 +19,7 @@ function Player() {
     } else {
       audioRef.current.play();
     }
+
     setIsPlaying(!isPlaying);
   };
 
@@ -31,11 +32,13 @@ function Player() {
     setCurrentSongIndex((prev) =>
       prev === 0 ? songs.length - 1 : prev - 1
     );
+
     setIsPlaying(false);
   };
 
   const handleVolumeChange = (newVolume) => {
     setVolume(newVolume);
+
     if (audioRef.current) {
       audioRef.current.volume = newVolume;
     }
@@ -50,6 +53,7 @@ function Player() {
     >
       <div className="overlay">
         <div className="player-card">
+
           <img
             src={currentSong.cover}
             alt="cover"
@@ -59,18 +63,28 @@ function Player() {
           <h2>{currentSong.title}</h2>
           <p>{currentSong.artist}</p>
 
-          <audio ref={audioRef} src={currentSong.src} />  {/* Elemento de audio que utiliza la referencia para controlar la reproducción y el volumen. */}
-
-          <ProgressBar audioRef={audioRef} /> {/* Componente de barra de progreso que recibe la referencia del audio para mostrar el progreso de la canción. */}
-
-          <Volumen onChange={handleVolumeChange} /> {/* Componente de volumen que recibe la función para manejar el cambio de volumen. */}  
-
-          <Controls
-            isPlaying={isPlaying}
-            togglePlay={togglePlay}
-            nextSong={nextSong}
-            prevSong={prevSong}
+          <audio
+            ref={audioRef}
+            src={currentSong.src}
           />
+
+          <div className="bottom-controls">
+
+            <ProgressBar audioRef={audioRef} />
+
+              <div className="controls-row">
+                <Controls
+                  isPlaying={isPlaying}
+                  togglePlay={togglePlay}
+                  nextSong={nextSong}
+                  prevSong={prevSong}
+                />
+
+                <Volumen onChange={handleVolumeChange} />
+              </div>
+
+          </div>
+
         </div>
       </div>
     </div>

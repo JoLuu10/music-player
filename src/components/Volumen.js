@@ -1,28 +1,44 @@
-import React, { useState } from 'react';
-import './Volumen.css';
+import React, { useState } from "react";
+import { FaVolumeUp } from "react-icons/fa";
+import "./Volumen.css";
 
-const Volumen = ({ onChange }) => { // Componente de control de volumen que recibe una función onChange para manejar los cambios de volumen.
+const Volumen = ({ onChange }) => {
   const [volume, setVolume] = useState(70);
+  const [showSlider, setShowSlider] = useState(false);
 
-  const handleVolumeChange = (e) => { // Función que se ejecuta cuando el usuario cambia el valor del slider de volumen.
+  const handleVolumeChange = (e) => {
     const newVolume = e.target.value;
+
     setVolume(newVolume);
+
     if (onChange) {
       onChange(newVolume / 100);
     }
   };
 
-  return ( /* Componente de control de volumen que muestra un slider para ajustar el volumen y un valor numérico. */
+  return (
     <div className="volumen-container">
-      <input
-        type="range"
-        min="0"
-        max="100"
-        value={volume}
-        onChange={handleVolumeChange}
-        className="volumen-slider"
-      />
-      <span className="volumen-valor">{volume}%</span>
+
+      {showSlider && (
+        <div className="slider-popup">
+          <input
+            type="range"
+            min="0"
+            max="100"
+            value={volume}
+            onChange={handleVolumeChange}
+            className="volumen-slider"
+          />
+        </div>
+      )}
+
+      <button
+        className="volume-btn"
+        onClick={() => setShowSlider(!showSlider)}
+      >
+        <FaVolumeUp />
+      </button>
+
     </div>
   );
 };

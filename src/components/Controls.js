@@ -1,16 +1,21 @@
-function Controls({ isPlaying, togglePlay, nextSong }) { // Componente de controles que recibe las props necesarias para controlar la reproducción y cambiar de canción.
+import { FaPlay, FaPause, FaForward, FaBackward } from "react-icons/fa";
+
+function Controls({ isPlaying, togglePlay, nextSong, prevSong }) {
     return(
         <div className="controls"> 
+            <button onClick={prevSong}> 
+                <FaBackward />
+            </button>
+
             <button onClick={togglePlay}> 
-                {isPlaying ? "Pause" : "Play"}
+                {isPlaying ? <FaPause /> : <FaPlay />}
             </button>
 
             <button onClick={nextSong}>
-                Next
+                <FaForward />
             </button>
         </div>
     );
 }
-
 
 export default Controls;
